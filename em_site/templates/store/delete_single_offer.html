@@ -1,0 +1,14 @@
+{% extends 'base/base.html' %}
+{% block content %}
+
+<h1>Delete single book offer</h1>
+<h6>Are you sure you want to the delete the following offer ?</h6>
+<p>Offer: {{offer.book.name}}</p>
+<form method="POST">
+	{% csrf_token %}
+	<button class="btn btn-danger" type="submit">Yes, delete.</button>
+</form>
+<a href="{% url 'users-profile' username=request.user.username %}">
+<button class="btn btn-primary">No</button>
+</a>
+{% endblock %}

@@ -1,10 +1,11 @@
 {% extends "base/base.html" %}
+{% load crispy_forms_tags %}
 {% load static %}
 {% block content %}
     <h1>Create Bundle Offer</h1>
     <form method="POST">
         {% csrf_token %}
-        <div id="book-options"></div>
+        {{ form|crispy }}
         <button>Create</button>
     </form>
 

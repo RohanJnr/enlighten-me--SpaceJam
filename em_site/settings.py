@@ -23,6 +23,7 @@ INSTALLED_APPS = [
     "em_site.apps.users",
 
     'rest_framework',
+    'crispy_forms',
 
     'django.contrib.admin',
     'django.contrib.auth',

@@ -1,13 +1,3 @@
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
-
-body {
-    font-family: Open Sans, Arial, sans-serif;
-    background-color: teal;
-}
 .main-container{
     display: flex;
     flex-direction: column;
@@ -108,7 +98,11 @@ ul li{
     box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px; 
 }
 
-#trade-boxes, #offer-boxes{
+.tile *{
+    margin: 2px 0;
+}
+
+.trade-boxes, .offer-boxes{
     display: none;
 }
 
@@ -118,4 +112,13 @@ ul li{
 
 .elements *:hover{
     cursor: pointer;
+}
+
+.profile-access-btns {
+    display: flex;
+    flex-direction: column;
+}
+
+.profile-access-btns * {
+    margin: 2px 0;
 }

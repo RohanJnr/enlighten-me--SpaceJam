@@ -10,9 +10,9 @@ btns.forEach(btn => {
         const visible = target.getAttribute("data-visible")
         const inVisible = target.getAttribute("data-invisible").split(",")
 
-        document.getElementById(visible).style.display = "flex"
+        document.querySelectorAll(`.${visible}`).forEach(element => element.style.display = "flex")
         inVisible.forEach(item => {
-            document.getElementById(item).style.display = "none"
+            document.querySelectorAll(`.${item}`).forEach(element => element.style.display = "none")
         })
     })
 })

@@ -1,0 +1,20 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Open Sans, Arial, sans-serif;
+    background-color: white;
+}
+
+a {
+    color: white !important;
+    text-decoration: none !important;
+}
+
+.outer-container {
+    width: 80%;
+    margin: auto;
+}

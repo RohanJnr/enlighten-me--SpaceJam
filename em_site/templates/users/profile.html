@@ -2,14 +2,6 @@
 {% load static %}
 {% block title %}
 <link rel="stylesheet" href="{% static 'css/profile.css' %}">
-<script src="https://kit.fontawesome.com/039f9254ac.js" crossorigin="anonymous"></script>
-<!-- CSS only -->
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
-<!-- JavaScript Bundle with Popper -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
-    crossorigin="anonymous"></script>
 {% endblock %}
 {% block content %}
 <div class="main-container">
@@ -24,9 +16,23 @@
             <div>
                 <div class="user-settings">
                     <h1 class="username">Your Name</h1>
-                    <div>
-                        <button class="btn btn-info">Edit Profile</button>
-                    </div>
+                    {% if request.user.username == username %}
+                        <div class="profile-access-btns">
+                            <div>
+                                <button class="btn btn-dark">Edit Profile</button>
+                            </div>
+                            <div>
+                                <button class="btn btn-dark">
+                                    <a href="{% url 'store-single-offer' %}">Create book offer</a>
+                                </button>
+                            </div>
+                            <div>
+                                <button class="btn btn-dark">
+                                    <a href="{% url 'store-single-offer' %}">Create bundle offer</a>
+                                </button>
+                            </div>
+                        </div>
+                    {% endif %}
                 </div>
                 <ul>
                     <li id="username">Name</li>
@@ -48,37 +54,47 @@
                     class="far fa-handshake"></i>Trades</li>
         </ul>
         {% for offer in single_offers %}
-        <div id="book-boxes" class="boxes">
-            <div class="tile">
-                <h5>
-                    <i class="fas fa-book-open"></i>
-                    {{ offer.book.name }}
-                </h5>
-                <small class="text-muted">By: {{ offer.book.author }}</small>
-                <br>
-                <button type="button" class="btn btn-success">
-                    Price: <span class="badge badge-light">{{ offer.price }}</span>
-                </button>
+            <div class="boxes book-boxes">
+                <div class="tile">
+                    <h5>
+                        <i class="fas fa-book-open"></i>
+                        {{ offer.book.name }}
+                    </h5>
+                    <small class="text-muted">By: {{ offer.book.author }}</small>
+                    <br>
+                    <button type="button" class="btn btn-success">
+                        Price: <span class="badge badge-light">{{ offer.price }}</span>
+                    </button>
+                    {% if request.user.username == username %}
+                        <br>
+                        <button type="button" class="btn btn-primary">
+                            <a href="{% url 'store-edit-single' pk=offer.pk %}">Edit</a>
+                        </button>
+                        <br>
+                        <button type="button" class="btn btn-danger">
+                            <a href="{% url 'store-delete-single' pk=offer.pk %}">Delete</a>
+                        </button>
+                    {% endif %}
+                </div>
             </div>
-        </div>
+        {% endfor %}
+        {% for offer in bundle_offers %}
+            <div class="boxes offer-boxes">
+                <div class="tile">
+                    <h5>
+                        <i class="fas fa-book-open"></i>
+                        {{ offer.title }}
+                    </h5>
+                    <small class="text-muted">listed on: 2:45 PM, 26th January 2020</small>
+                    <br>
+                    <button type="button" class="btn btn-success">
+                        Price: <span class="badge badge-light">{{ offer.price }}</span>
+                    </button>
+                </div>
+            </div>
         {% endfor %}
 
-        <div id="offer-boxes" class="boxes">
-            <div class="tile">
-                <h5>
-                    <i class="fas fa-book-open"></i>
-                    Bundle name
-                </h5>
-                <small class="text-muted">listed on: 2:45 PM, 26th January 2020</small>
-                <br>
-                <button type="button" class="btn btn-success">
-                    Price: <span class="badge badge-light">100 $</span>
-                    <span class="sr-only">unread messages</span>
-                </button>
-            </div>
-        </div>
-
-        <div id="trade-boxes" class="boxes">
+        <div class="boxes trade-boxes">
             <div class="tile">
                 trade Tile1
             </div>

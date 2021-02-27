@@ -28,6 +28,7 @@ class Book(models.Model):
 
 
 class BundleOffer(models.Model):
+    title = models.CharField(max_length=256, default="A bundle of books.")
     books = models.ManyToManyField(Book)
     user = models.ForeignKey(USER, on_delete=models.CASCADE)
     price = models.FloatField(
