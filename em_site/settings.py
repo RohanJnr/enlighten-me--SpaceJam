@@ -19,6 +19,9 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    "em_site.apps.store",
+    "em_site.apps.users",
+
     'rest_framework',
 
     'django.contrib.admin',
@@ -108,6 +111,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
+STATICFILES_DIRS = [Path(BASE_DIR, "em_site", "static")]
+
 
 MEDIA_ROOT = Path(BASE_DIR, "em_site", "media")
 MEDIA_URL = "/media/"

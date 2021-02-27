@@ -1,0 +1,25 @@
+{% extends "base/base.html" %}
+{% block content %}
+    <h1>{{ request.user.username }}</h1>
+    <h2>Books</h2>
+    {% for book in books %}
+        <p>{{ book }}</p>
+        <img src="{{ book.image.url }}" alt="sdasd">
+    {% endfor %}
+
+    <h2>Single offers</h2>
+    {% for offer in single_offers %}
+        <p>{{ offer }}</p>
+    {% endfor %}
+
+    <h2>Bundle offers</h2>
+    {% for offer in bundle_offers %}
+        <h4>Books</h4>
+        {% for book in offer.books.all %}
+            <p>{{ book }}</p>
+        {% endfor %}
+        <h4>Price</h4>
+        <p>{{ offer.price }}</p>
+    {% endfor %}
+
+{% endblock %}

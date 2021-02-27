@@ -1,0 +1,9 @@
+{% extends "base/base.html" %}
+{% block content %}
+    <h1>Create Single Book Offer</h1>
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+    <button>Create</button>
+    </form>
+{% endblock %}

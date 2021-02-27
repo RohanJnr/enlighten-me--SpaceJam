@@ -1,0 +1,14 @@
+{% extends "base/base.html" %}
+{% load static %}
+{% block content %}
+    <h1>Create Bundle Offer</h1>
+    <form method="POST">
+        {% csrf_token %}
+        <div id="book-options"></div>
+        <button>Create</button>
+    </form>
+
+    {% block js%}
+        <script src="{% static 'js/bundleOffer.js' %}"></script>
+    {% endblock %}
+{% endblock %}
