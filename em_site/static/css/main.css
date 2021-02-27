@@ -18,3 +18,16 @@ a {
     width: 80%;
     margin: auto;
 }
+
+footer {
+    position: absolute;
+    bottom: 0;
+    height: 5vh;
+    width: 100%;
+    background-color: rgb(33,37,41);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}

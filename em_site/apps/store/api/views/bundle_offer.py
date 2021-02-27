@@ -20,7 +20,6 @@ class BundleOfferAPIView(APIView):
     @staticmethod
     def get(request):
         books = list(Book.objects.filter(user=request.user).values())
-        print(books)
         return JsonResponse(books, safe=False)
 
     @staticmethod

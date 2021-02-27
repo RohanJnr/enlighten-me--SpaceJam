@@ -19,6 +19,7 @@
     {% endblock %}
 </head>
 <body>
+    {% include "base/_navbar.html" %}
     <div class="outer-container">
         {% block content %}
         {% endblock %}
@@ -26,5 +27,7 @@
 
     {% block js %}
     {% endblock %}
+
+    {% include "base/_footer.html" %}
 </body>
 </html>

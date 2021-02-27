@@ -10,37 +10,39 @@
         <div class="profile">
 
             <div class="profile-pic">
-                <img src="Screenshot (118).png" alt="">
+                <img src="https://www.cornwallbusinessawards.co.uk/wp-content/uploads/2017/11/dummy450x450.jpg" alt="">
             </div>
 
-            <div>
+            <div class="user-details">
                 <div class="user-settings">
-                    <h1 class="username">Your Name</h1>
-                    {% if request.user.username == username %}
-                        <div class="profile-access-btns">
-                            <div>
-                                <button class="btn btn-dark">Edit Profile</button>
-                            </div>
-                            <div>
-                                <button class="btn btn-dark">
-                                    <a href="{% url 'store-single-offer' %}">Create book offer</a>
-                                </button>
-                            </div>
-                            <div>
-                                <button class="btn btn-dark">
-                                    <a href="{% url 'store-single-offer' %}">Create bundle offer</a>
-                                </button>
-                            </div>
-                        </div>
-                    {% endif %}
+                    <h1 class="username">{{ request.user.first_name }} {{ request.user.last_name }}</h1>
                 </div>
                 <ul>
-                    <li id="username">Name</li>
-                    <li>Email</li>
+                    <li id="username">{{ request.user.username }}</li>
+                    <li>{{ request.user.email }}</li>
                     <li>Phone Number</li>
                     <li>Bio</li>
                 </ul>
             </div>
+            {% if request.user.username == username %}
+                <div class="profile-access-btns">
+                    <div>
+                        <button class="btn btn-secondary">
+                            <a href="#">Edit Profile</a>
+                        </button>
+                    </div>
+                    <div>
+                        <button class="btn btn-secondary">
+                            <a href="{% url 'store-single-offer' %}">Create book offer</a>
+                        </button>
+                    </div>
+                    <div>
+                        <button class="btn btn-secondary">
+                            <a href="{% url 'store-bundle-offer' %}">Create bundle offer</a>
+                        </button>
+                    </div>
+                </div>
+            {% endif %}
         </div>
     </section>
 
@@ -53,8 +55,8 @@
             <li data-visible="trade-boxes" data-invisible="book-boxes,offer-boxes" id="trades-tab"><i
                     class="far fa-handshake"></i>Trades</li>
         </ul>
+        <div class="boxes book-boxes">
         {% for offer in single_offers %}
-            <div class="boxes book-boxes">
                 <div class="tile">
                     <h5>
                         <i class="fas fa-book-open"></i>
@@ -76,10 +78,10 @@
                         </button>
                     {% endif %}
                 </div>
-            </div>
         {% endfor %}
+        </div>
+        <div class="boxes offer-boxes">
         {% for offer in bundle_offers %}
-            <div class="boxes offer-boxes">
                 <div class="tile">
                     <h5>
                         <i class="fas fa-book-open"></i>
@@ -91,8 +93,8 @@
                         Price: <span class="badge badge-light">{{ offer.price }}</span>
                     </button>
                 </div>
-            </div>
         {% endfor %}
+        </div>
 
         <div class="boxes trade-boxes">
             <div class="tile">

@@ -5,7 +5,6 @@
     margin: auto;
 }
 .container{
-    background-color: rgb(238, 237, 237);
     display: flex;
     align-items: center;
     min-height: 40vh;
@@ -42,10 +41,6 @@
     height: 100%;
 }
 
-.username{
-    color: darkgray;
-}
-
 ul{
     list-style: none;
     line-height: 1.5em;
@@ -53,6 +48,7 @@ ul{
 
 #username{
     font-weight: bold;
+    font-size: 20px;
 }
 
 ul li{
@@ -68,13 +64,12 @@ ul li{
 
 .elements li{
     padding: 0 15px;
-    font-size: 17px;
-    font-weight: bold;
+    font-size: 20px;
     color: lightslategrey;
 }
 
 .elements li:hover{
-    border-top: 3px solid darkgray;
+    border-bottom: 2px black solid;
 }
 
 .btn-info{
@@ -88,14 +83,14 @@ ul li{
 
 .boxes{
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
     flex-wrap: wrap;
 }
 
 .tile{
     padding: 60px 70px;
     margin: 10px;
-    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px; 
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 }
 
 .tile *{
