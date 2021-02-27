@@ -58,9 +58,9 @@
         <div class="boxes book-boxes">
         {% for offer in single_offers %}
                 <div class="tile">
-                    <h5>
+                    <h5 class="book-name">
                         <i class="fas fa-book-open"></i>
-                        {{ offer.book.name }}
+                        <a href="{% url 'store-detail-single' pk=offer.pk%}">{{ offer.book.name }}</a>
                     </h5>
                     <small class="text-muted">By: {{ offer.book.author }}</small>
                     <br>
@@ -83,7 +83,7 @@
         <div class="boxes offer-boxes">
         {% for offer in bundle_offers %}
                 <div class="tile">
-                    <h5>
+                    <h5 class="bundle-name">
                         <i class="fas fa-book-open"></i>
                         {{ offer.title }}
                     </h5>
@@ -92,6 +92,16 @@
                     <button type="button" class="btn btn-success">
                         Price: <span class="badge badge-light">{{ offer.price }}</span>
                     </button>
+                    {% if request.user.username == username %}
+                        <br>
+                        <button type="button" class="btn btn-primary">
+                            <a href="{% url 'store-edit-bundle' pk=offer.pk %}">Edit</a>
+                        </button>
+                        <br>
+                        <button type="button" class="btn btn-danger">
+                            <a href="{% url 'store-delete-bundle' pk=offer.pk %}">Delete</a>
+                        </button>
+                    {% endif %}
                 </div>
         {% endfor %}
         </div>

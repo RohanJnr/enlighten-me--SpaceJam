@@ -1,0 +1,20 @@
+.offer-container{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin: 5%;
+    gap: 10px;
+}
+
+.offer-details, .offer-user-details {
+    padding: 30px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    border-radius: 7px;
+}
+
+.offer-details *, .offer-user-details * {
+    margin: 5px 0;
+}
+
+.owner-name a{
+    color: dodgerblue !important;
+}

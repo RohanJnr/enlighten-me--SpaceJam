@@ -1,6 +1,5 @@
 from django.contrib.auth import get_user_model
-from django.contrib.auth.models import User
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from django.views.generic import View
 from django.contrib.auth.mixins import LoginRequiredMixin
 
@@ -20,3 +19,10 @@ class Profile(LoginRequiredMixin, View):
             "single_offers": single_offers
         }
         return render(request, self.template_name, context)
+
+
+class HomeRedirect(View):
+    def get(self, request):
+        if request.user.is_authenticated:
+            return redirect("users-profile", username=request.user.username)
+        # return redirect("")

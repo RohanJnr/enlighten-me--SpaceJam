@@ -112,8 +112,13 @@ ul li{
 .profile-access-btns {
     display: flex;
     flex-direction: column;
+    color: white;
 }
 
 .profile-access-btns * {
     margin: 2px 0;
+}
+
+.book-name a, .bundle-name a{
+    color: dodgerblue !important;
 }

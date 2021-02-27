@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Akaya+Telivigala&family=Open+Sans&display=swap');
+
 * {
     box-sizing: border-box;
     margin: 0;
@@ -5,8 +7,8 @@
 }
 
 body {
-    font-family: Open Sans, Arial, sans-serif;
     background-color: white;
+    font-family: 'Open Sans', sans-serif;
 }
 
 a {
@@ -20,7 +22,7 @@ a {
 }
 
 footer {
-    position: absolute;
+    position: relative;
     bottom: 0;
     height: 5vh;
     width: 100%;
@@ -30,4 +32,9 @@ footer {
     justify-content: center;
     align-items: center;
 
+}
+
+.font2 {
+    /*font-family: 'Akaya Telivigala', cursive;*/
+    font-size: 150%;
 }

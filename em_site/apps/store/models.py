@@ -44,7 +44,7 @@ class BundleOffer(models.Model):
     )
 
     def __str__(self):
-        return f"{len(self.books.all())} - {self.price}"
+        return f"{self.id}.{len(self.books.all())} - {self.price}"
 
 
 class SingleBookOffer(models.Model):
@@ -63,7 +63,7 @@ class SingleBookOffer(models.Model):
     )
 
     def __str__(self):
-        return f"{self.book} - {self.price}"
+        return f"{self.id}.{self.book} - {self.price}"
 
 
 post_delete.connect(delete_book_image, sender=Book)
