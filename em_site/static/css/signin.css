@@ -1,0 +1,46 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.xyz-container{
+    display: grid;
+    grid-template-columns: 40% 60%;
+    margin: 5% 10%;
+    border: 2px black solid;
+}
+
+.img-div img{
+    height: 100%;
+    width: 100%;
+}
+
+.form-div {
+    padding: 20px;
+}
+
+form *{
+    margin: 5px 5px;
+}
+
+.form-row{
+    display: flex;
+    justify-content: space-between;
+}
+
+legend{
+    font-weight: bold;
+}
+
+#address{
+    margin-left: 10px;
+}
+
+label{
+    font-weight: 600;
+}
+
+.btn-primary{
+    margin: 13px 0 0 10px;
+}
