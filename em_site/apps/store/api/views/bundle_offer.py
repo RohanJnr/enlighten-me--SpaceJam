@@ -19,9 +19,9 @@ class BundleOfferAPIView(APIView):
 
     @staticmethod
     def get(request):
-        books = Book.objects.filter(user=request.user)
-        books = [book for book in books]
-        return JsonResponse(books)
+        books = list(Book.objects.filter(user=request.user).values())
+        print(books)
+        return JsonResponse(books, safe=False)
 
     @staticmethod
     def post(request):
