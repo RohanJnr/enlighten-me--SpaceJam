@@ -1,0 +1,121 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Open Sans, Arial, sans-serif;
+    background-color: teal;
+}
+.main-container{
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    margin: auto;
+}
+.container{
+    background-color: rgb(238, 237, 237);
+    display: flex;
+    align-items: center;
+    min-height: 40vh;
+    border-bottom: 2px solid lightgray;
+}
+
+.profile{
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+.profile *{
+    margin: 0 20px;
+}
+
+.profile-pic{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.profile-pic img{
+    border-radius: 50%;
+    height: 150px;
+    width: 150px;
+}
+
+.user-settings{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+}
+
+.username{
+    color: darkgray;
+}
+
+ul{
+    list-style: none;
+    line-height: 1.5em;
+}
+
+#username{
+    font-weight: bold;
+}
+
+ul li{
+    font-size: 16px;
+    color: darkgray;
+}
+
+.elements{
+    padding: 0;
+    display: flex;
+    justify-content:center;
+}
+
+.elements li{
+    padding: 0 15px;
+    font-size: 17px;
+    font-weight: bold;
+    color: lightslategrey;
+}
+
+.elements li:hover{
+    border-top: 3px solid darkgray;
+}
+
+.btn-info{
+    color: white !important;
+}
+
+.container2{
+    display: flex;
+    flex-direction: column;
+}
+
+.boxes{
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.tile{
+    padding: 60px 70px;
+    margin: 10px;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px; 
+}
+
+#trade-boxes, #offer-boxes{
+    display: none;
+}
+
+.btn-success{
+    margin-top: 7px;
+}
+
+.elements *:hover{
+    cursor: pointer;
+}
