@@ -1,0 +1,61 @@
+{% extends "base/base.html" %}
+{% load static %}
+
+{% block title %}
+    <link rel="stylesheet" href="{% static 'css/searching.css' %}">
+{% endblock %}
+
+
+{% block content %}
+    <section class="searching-container">
+    <div class="options">
+        <button class="btn btn-primary" id="book-btn-search">
+            Book offers
+        </button>
+        <button class="btn btn-primary" id="bundle-btn-search">
+            Bundle offers
+        </button>
+    </div>
+    <div class="single-search-div">
+        {% for offer in single_offers %}
+            <div class="offer">
+                <div class="book-info">
+                    <h2>
+                        <a class="black-color" href="{% url 'store-detail-single' pk=offer.pk %}">{{ offer.book.name }}</a>
+                    </h2>
+                    <small class="text-muted">Author: {{ offer.book.author }}</small>
+                </div>
+                <img src="{{ offer.book.image.url }}" alt="error"><br>
+                <small>Owner:
+                    <a class="black-color" href="{% url 'users-profile' username=offer.user.username %}">{{ offer.user.username }}</a>
+                </small><br>
+                <button type="button" class="btn btn-success">
+                    Price: <span class="badge badge-light">{{ offer.price }} $</span>
+                </button>
+            </div>
+        {% endfor %}
+    </div>
+    <div class="bundle-search-div">
+        {% for offer in bundle_offers %}
+            <div class="offer">
+                <div class="book-info">
+                    <h2>
+                        <a class="black-color" href="{% url 'store-detail-bundle' pk=offer.pk %}">{{ offer.title }}</a>
+                    </h2>
+                    <h6>Number of books: {{ offer.books.count }}</h6>
+                </div>
+                <small>Owner:
+                    <a class="black-color" href="{% url 'users-profile' username=offer.user.username %}">{{ offer.user.username }}</a>
+                </small>
+                <button type="button" class="btn btn-success">
+                    Price: <span class="badge badge-light">{{ offer.price }} $</span>
+                </button>
+            </div>
+        {% endfor %}
+    </div>
+
+
+    </section>
+
+    <script src="{% static 'js/searching.js' %}"></script>
+{% endblock %}

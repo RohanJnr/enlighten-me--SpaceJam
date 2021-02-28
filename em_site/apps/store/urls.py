@@ -9,7 +9,8 @@ from .views import (
     DeleteBundleOffer,
     EditBundleOffer,
     SingleOfferDetail,
-    BundleOfferDetail
+    BundleOfferDetail,
+    SearchOffer
 )
 
 
@@ -26,5 +27,5 @@ urlpatterns = [
     path("edit-offer/bundle/<int:pk>", EditBundleOffer.as_view(), name="store-edit-bundle"),
     path("detail-offer/bundle/<int:pk>", BundleOfferDetail.as_view(), name="store-detail-bundle"),
 
-
+    path("search", SearchOffer.as_view(), name="store-search")
 ]

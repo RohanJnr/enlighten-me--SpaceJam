@@ -25,7 +25,7 @@ class AddBook(LoginRequiredMixin, View):
             obj = form.save(commit=False)
             obj.user = request.user
             obj.save()
-            return redirect("users-profile")
+            return redirect("users-profile", username=request.user.username)
         context = {
             "form": form
         }
@@ -194,3 +194,19 @@ class SingleOfferDetail(DetailView):
 class BundleOfferDetail(DetailView):
     queryset = BundleOffer.objects.all()
     template_name = "store/detail_bundle_offer.html"
+
+
+class SearchOffer(View):
+    template_name = "store/searching.html"
+
+    def get(self, request):
+        search = request.GET.get("offer")
+        single_offers = SingleBookOffer.objects.filter(book__name__icontains=search)
+        bundle_offers = BundleOffer.objects.filter(title__icontains=search)
+
+        context = {
+            "single_offers": single_offers,
+            "bundle_offers": bundle_offers
+        }
+        print(single_offers)
+        return render(request, self.template_name, context)

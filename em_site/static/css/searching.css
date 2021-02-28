@@ -8,7 +8,7 @@ body {
     font-family: Open Sans, Arial, sans-serif;
 }
 
-.container{
+.single-search-div, .bundle-search-div{
     margin-top: 25px;
     display: flex;
     flex-direction: row;
@@ -36,4 +36,12 @@ img{
 .offer:hover{
     transform: scale(1.1);
     transition: 0.3s;
+}
+
+.black-color {
+    color: black !important;
+}
+
+.bundle-search-div {
+    display: none;
 }
