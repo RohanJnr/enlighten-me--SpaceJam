@@ -23,3 +23,6 @@
 ##### 5.Running the server
 - Go the folder where your manage.py sits and the following commands to run the server:
   - **python manage.py runserver**
+
+- Start by heading to the register page at http://localhost:8000/register and register
+- Then head over to login page to login at http://localhost:8000/login
