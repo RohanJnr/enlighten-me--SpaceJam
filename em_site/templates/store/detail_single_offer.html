@@ -24,14 +24,21 @@
             </span></h3>
             <p>
                 <b>Phone:</b>
-                93423423543
+                {{ object.user.profile.phone }}
             </p>
             <p>
                 <b>Address: </b>
-                {{ object.user.address }}
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloremque eligendi esse maiores totam voluptate! Animi id maxime natus omnis provident quasi quod velit vitae?
+                {{ object.user.profile.address }}
             </p>
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3889.015528413673!2d77.57350981534285!3d12.906722919789418!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae156f06c1a795%3A0x13b05949b1a7b655!2sSindhoor%20Convention%20Centre!5e0!3m2!1sen!2sin!4v1614456869906!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            <iframe
+              width="600"
+              height="450"
+              style="border:0"
+              loading="lazy"
+              allowfullscreen
+              src="https://www.google.com/maps/embed/v1/place?key=AIzaSyCPL-_HBZZBFvsCTM3kWzShWgqO-4MkGVY
+                &q={{ object.user.profile.address }}">
+            </iframe>
         </div>
     </div>
 

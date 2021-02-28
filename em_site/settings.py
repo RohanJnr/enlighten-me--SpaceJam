@@ -117,3 +117,5 @@ STATICFILES_DIRS = [Path(BASE_DIR, "em_site", "static")]
 
 MEDIA_ROOT = Path(BASE_DIR, "em_site", "media")
 MEDIA_URL = "/media/"
+
+LOGIN_REDIRECT_URL = "users-login"

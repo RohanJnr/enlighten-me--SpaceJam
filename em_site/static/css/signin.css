@@ -44,3 +44,13 @@ label{
 .btn-primary{
     margin: 13px 0 0 10px;
 }
+.form-div {
+    padding-top: 70px;
+}
+
+.form-row {
+    display: flex;
+    flex-direction: column;
+    font-size: 22px;
+    font-weight: 600;
+}

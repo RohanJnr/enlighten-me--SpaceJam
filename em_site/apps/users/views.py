@@ -1,5 +1,5 @@
 from django.contrib.auth.models import User
-from django.contrib.auth import get_user_model
+from django.contrib.auth import get_user_model, authenticate, login
 from django.shortcuts import render, get_object_or_404, redirect
 from django.views.generic import View
 from django.contrib.auth.mixins import LoginRequiredMixin
@@ -28,7 +28,7 @@ class HomeRedirect(View):
     def get(self, request):
         if request.user.is_authenticated:
             return redirect("users-profile", username=request.user.username)
-        # return redirect("")
+        return redirect("users-login")
 
 
 class Register(View):
@@ -54,4 +54,21 @@ class Register(View):
             phone=p.get("phone"),
             pincode=p.get("pincode"),
         )
+        return redirect("users-profile", username=user.username)
+
+
+class Login(View):
+    template_name = "users/signin.html"
+
+    def get(self, request):
+        if request.user.is_authenticated:
+            return redirect("users-profile", username=request.user.username)
+        return render(request, self.template_name)
+
+    def post(self, request):
+        user = authenticate(
+            username=request.POST.get("username"),
+            password=request.POST.get("password")
+        )
+        login(request, user)
         return redirect("users-profile", username=user.username)
