@@ -1,5 +1,5 @@
 from django.contrib.auth.models import User
-from django.contrib.auth import get_user_model, authenticate, login
+from django.contrib.auth import get_user_model, authenticate, login, logout
 from django.shortcuts import render, get_object_or_404, redirect
 from django.views.generic import View
 from django.contrib.auth.mixins import LoginRequiredMixin
@@ -72,3 +72,12 @@ class Login(View):
         )
         login(request, user)
         return redirect("users-profile", username=user.username)
+
+
+class Logout(LoginRequiredMixin, View):
+    """Log-out User."""
+
+    def get(self, request):
+        """Log-out User and redirect to home page."""
+        logout(request)
+        return redirect("users:home")
